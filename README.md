@@ -10,6 +10,6 @@
     Projects
 </h1>
 <h3 align="center">
-A collection of ongoing projects I'm working on to learn about and become proficient in machine learning (ML) while building in public.
+A collection of ongoing projects I'm working on to learn about and become proficient in machine learning (ML).
 <hr>
 </h3>

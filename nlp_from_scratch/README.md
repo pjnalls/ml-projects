@@ -17,7 +17,7 @@ A walkthrough of an NLP character-level Recurrent Neural Network (RNN) and trans
 ## Prerequisites
 - Python 3 should be installed (I'm using Python 3.11 at the start of this project), which you can download here: https://www.python.org/downloads/
 - pip should also be installed (I'm using pip 25.1), which is downloaded along with Python
-- venv, which you can use to learn how to set up a virtual environment here: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
+- A virtual environment created with a tool such as venv, which you can learn how to set up here: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
 
 ## Installing PyTorch
 In you virtual environment created with venv, run the following command:
@@ -27,9 +27,14 @@ In you virtual environment created with venv, run the following command:
 Now test to see if PyTorch is installed.
 ```python
 import torch
-print("PyTorch {0}".format(torch.__version__))
+print(f"PyTorch {torch.__version__}")
 ```
 You should get an output something like the following:
 ```text
 PyTorch 2.7.0
+```
+## Running `src/data/dataset.py`
+From the root of the `nlp_from_scratch` project run the following:
+```bash
+$ python3 -m src.data.dataset
 ```
