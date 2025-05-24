@@ -33,8 +33,23 @@ You should get an output something like the following:
 ```text
 PyTorch 2.7.0
 ```
-## Running `src/data/dataset.py`
-From the root of the `nlp_from_scratch` project run the following:
+## Running the Project
+I'm using a Makefile to defined all of my CI commands at every step of the pipeline of the neural network model created for this project.
+
+Here are some useful commands you can run at different stages of the pipeline:
+### Running the entire pipeline
 ```bash
-$ python3 -m src.data.dataset
+$ make
+```
+### Delete compiled Python files
+```bash
+$ make clean
+```
+### Delete all data
+```bash
+$ make clean-data
+```
+### Delete all cached and external data
+```bash
+$ make clean-all
 ```

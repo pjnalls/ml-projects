@@ -1,6 +1,7 @@
 # ================================================
 # Training the Recurrent Neural Network (RNN)
 # ================================================
+import matplotlib.pyplot as plt
 import random
 import numpy as np
 import time
@@ -11,7 +12,8 @@ import torch.nn as nn
 import src.model.rnn as rnn
 import src.data.dataset as dataset
 
-def train(rnn, training_data, n_epoch = 10, n_batch_size = 64, report_every = 50, learning_rate = 0.2, criterion = nn.NLLLoss()):
+
+def train(rnn, training_data, n_epoch=10, n_batch_size=64, report_every=50, learning_rate=0.2, criterion=nn.NLLLoss()):
     """ Learn on a batch of training_data for a specified 
     number of iterations and reporting thresholds """
     # Keep track of losses
@@ -23,7 +25,7 @@ def train(rnn, training_data, n_epoch = 10, n_batch_size = 64, report_every = 50
     print(f"training on data set with n = {len(training_data)}")
 
     for iter in range(1, n_epoch + 1):
-        rnn.zero_grad() # Clear gradients
+        rnn.zero_grad()  # Clear gradients
 
         # Create some mini-batches
         batches = list(range(len(training_data)))
@@ -32,7 +34,7 @@ def train(rnn, training_data, n_epoch = 10, n_batch_size = 64, report_every = 50
 
         for idx, batch in enumerate(batches):
             batch_loss = 0
-            for i in batch: # For each example in this batch
+            for i in batch:  # For each example in this batch
                 (label_tensor, text_tensor, label, text) = training_data[i]
                 output = rnn.forward(text_tensor)
                 loss = criterion(output, label_tensor)
@@ -48,17 +50,19 @@ def train(rnn, training_data, n_epoch = 10, n_batch_size = 64, report_every = 50
 
         all_losses.append(current_loss / len(batches))
         if iter % report_every == 0:
-            print(f"{iter} ({iter / n_epoch:.0%}): \t average batch loss = {all_losses[-1]}")
+            print(
+                f"{iter} ({iter / n_epoch:.0%}): \t average batch loss = {all_losses[-1]}")
         current_loss = 0
 
     return all_losses
 
+
 start = time.time()
-all_losses = train(rnn.chat_rnn, dataset.train_set, n_epoch = 27, learning_rate = 0.15, report_every = 5)
+all_losses = train(rnn.chat_rnn, dataset.train_set,
+                   n_epoch=27, learning_rate=0.15, report_every=5)
 end = time.time()
 print(f"training took {end - start}s")
 
-import matplotlib.pyplot as plt
 
 plt.figure()
 plt.plot(all_losses)
