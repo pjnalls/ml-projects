@@ -10,7 +10,7 @@ import torch
 import torch.nn as nn
 
 import src.model.rnn as rnn
-import src.data.dataset as dataset
+import src.preprocess.dataset as dataset
 
 
 def train(rnn, training_data, n_epoch=10, n_batch_size=64, report_every=50, learning_rate=0.2, criterion=nn.NLLLoss()):
@@ -64,9 +64,9 @@ end = time.time()
 print(f"training took {end - start}s")
 
 
-plt.figure()
-plt.plot(all_losses)
-plt.xlabel("Epoch")
-plt.ylabel("Loss")
-plt.title("Training Loss")
-plt.show()
+# plt.figure()
+# plt.plot(all_losses)
+# plt.xlabel("Epoch")
+# plt.ylabel("Loss")
+# plt.title("Training Loss")
+# plt.show()

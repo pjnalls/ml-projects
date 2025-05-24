@@ -15,7 +15,7 @@ def evaluate(chat_rnn, testing_data, classes):
     with torch.no_grad():  # Disable gradient tracking
         for i in range(len(testing_data)):
             (label_tensor, text_tensor, label, text) = testing_data[i]
-            output = rnn(text_tensor)
+            output = chat_rnn(text_tensor)
             guess, guess_i = rnn.label_from_output(output, classes)
             label_i = classes.index(label)
             confusion[label_i][guess_i] += 1

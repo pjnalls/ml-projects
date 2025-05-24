@@ -2,16 +2,31 @@
 # Targets to run the model pipeline
 #----------------------------------------
 
-# Download data
+# Download the data
 download:
 	python -m src.data.download
+
+# Preprocess the data
+preprocess:
+	python -m src.preprocess.dataset
 
 # Train the model
 train:
 	python -m src.model.train
 
+# Evaluate the model
+evaluate:
+	python -m src.evaluate.evaluate
+
+# Visualize the model
+visualize:
+	python -m src.visualization.visualize
+
+# Run the model pipeline
+run: preprocess train evaluate visualize
+
 # Run all: Run the model pipeline
-all: download train
+all: download preprocess train evaluate visualize
 
 #----------------------------------------
 # Cleaning folders

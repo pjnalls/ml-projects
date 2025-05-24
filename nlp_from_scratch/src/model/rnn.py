@@ -5,7 +5,7 @@
 import torch.nn as nn
 
 import src.common.tools as tools
-import src.data.dataset as dataset
+import src.preprocess.dataset as dataset
 
 
 class CharRNN(nn.Module):
@@ -35,7 +35,7 @@ def label_from_output(output, output_labels):
     return output_labels[label_i], label_i
 
 
-input = tools.line_to_tensor("Takahiro")
-output = chat_rnn(input)
+#input = tools.line_to_tensor("Takahiro")
+#output = chat_rnn(input)
 # print(output)
 # print(label_from_output(output, dataset.alldata.labels_uniq))
