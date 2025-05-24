@@ -5,18 +5,18 @@ import torch
 
 
 import src.evaluate.evaluate as evaluate
-import src.model.rnn as rnn
+import src.model.model as model
 import src.preprocess.dataset as dataset
 
-def evaluate(chat_rnn, testing_data, classes):
+def evaluate(classifying_char_rnn, testing_data, classes):
     confusion = torch.zeros(len(classes), len(classes))
 
-    chat_rnn.eval()  # Set the model to evaluation mode
+    classifying_char_rnn.eval()  # Set the model to evaluation mode
     with torch.no_grad():  # Disable gradient tracking
         for i in range(len(testing_data)):
             (label_tensor, text_tensor, label, text) = testing_data[i]
-            output = chat_rnn(text_tensor)
-            guess, guess_i = rnn.label_from_output(output, classes)
+            output = classifying_char_rnn(text_tensor)
+            guess, guess_i = model.label_from_output(output, classes)
             label_i = classes.index(label)
             confusion[label_i][guess_i] += 1
 
@@ -29,5 +29,5 @@ def evaluate(chat_rnn, testing_data, classes):
     return confusion
 
 
-confusion = evaluate(rnn.chat_rnn, dataset.test_set,
+confusion = evaluate(model.classifying_rnn, dataset.test_set,
                      classes=dataset.alldata.labels_uniq)

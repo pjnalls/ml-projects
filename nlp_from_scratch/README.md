@@ -16,8 +16,7 @@ A walkthrough of an NLP character-level Recurrent Neural Network (RNN) and trans
 
 ## Prerequisites
 - Python 3 should be installed (I'm using Python 3.11 at the start of this project), which you can download here: https://www.python.org/downloads/
-- `pip` should also be installed (I'm using pip 25.1), which is downloaded along with Python
-- A virtual environment created with a tool such as `venv`, which you can learn how to set up here: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
+- A virtual environment created with a tool such as `venv` (I'm using it for this project), which you can learn how to set up here: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
 
 ## Installing Project Dependencies 
 ### via `venv`

@@ -26,6 +26,10 @@ def visualize(confusion, classes):
     # Set up title
     plt.title("Languages the RNN Guessed Correctly")
 
+    plt.savefig("reports/figures/confusion.png")
+    
     plt.show()
+
+
 
 visualize(evaluate.confusion, classes=dataset.alldata.labels_uniq)

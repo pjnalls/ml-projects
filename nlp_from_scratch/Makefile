@@ -42,6 +42,8 @@ clean-data:
 	rm -rf data/names/ 
 	rm -rf data/data.zip
 	rm -rf data/eng-fra.txt
+	rm -rf models/model.pth
+	rm -rf reports/figures/confusion.png
 
 # Delete all
 clean-all: clean clean-data
