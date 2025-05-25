@@ -1,1 +1,4 @@
 
+[submodule "nlp_from_scratch"]
+	path = nlp_from_scratch
+	url = git@github.com:pjnalls/nlp_from_scratch.git
