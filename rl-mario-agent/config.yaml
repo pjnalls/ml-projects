@@ -1,0 +1,4 @@
+# DATA
+# datalink: "https://path/to/data.zip"
+dataname: data
+datadirectory: data/
